@@ -13,7 +13,7 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-APP_NAME="finance-tracker-backend"
+APP_NAME="finance-tracker"
 APP_DIR="/opt/finance-tracker"
 SERVICE_USER="finance"
 NODE_VERSION="18"
@@ -96,8 +96,10 @@ if [ -d "$APP_DIR/.git" ]; then
     sudo -u $SERVICE_USER git pull origin main
     print_status "Repository updated"
 else
-    cd /opt
-    sudo -u $SERVICE_USER git clone $GITHUB_REPO $APP_NAME
+    # Remove existing directory if it exists
+    sudo rm -rf $APP_DIR
+    # Clone to the correct directory
+    sudo -u $SERVICE_USER git clone $GITHUB_REPO $APP_DIR
     sudo chown -R $SERVICE_USER:$SERVICE_USER $APP_DIR
     print_status "Repository cloned"
 fi
