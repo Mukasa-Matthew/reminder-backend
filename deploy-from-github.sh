@@ -18,7 +18,7 @@ APP_DIR="/opt/finance-tracker"
 SERVICE_USER="finance"
 NODE_VERSION="18"
 PORT="5000"
-GITHUB_REPO="https://github.com/YOUR_USERNAME/finance-tracker-backend.git"
+GITHUB_REPO="https://github.com/Mukasa-Matthew/reminder-backend.git"
 
 echo -e "${BLUE}🚀 Deploying Finance Tracker Backend from GitHub...${NC}"
 echo ""
@@ -98,6 +98,7 @@ if [ -d "$APP_DIR/.git" ]; then
 else
     cd /opt
     sudo -u $SERVICE_USER git clone $GITHUB_REPO $APP_NAME
+    sudo chown -R $SERVICE_USER:$SERVICE_USER $APP_DIR
     print_status "Repository cloned"
 fi
 
