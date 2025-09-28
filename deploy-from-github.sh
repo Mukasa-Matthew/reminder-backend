@@ -96,13 +96,14 @@ if [ -d "$APP_DIR/.git" ]; then
     sudo -u $SERVICE_USER git pull origin main
     print_status "Repository updated"
 else
-    # Remove existing directory if it exists
+    # Remove existing directory if it exists and create with proper ownership
     sudo rm -rf $APP_DIR
-    # Create directory with proper ownership
     sudo mkdir -p $APP_DIR
     sudo chown $SERVICE_USER:$SERVICE_USER $APP_DIR
+    sudo chmod 755 $APP_DIR
     # Clone to the correct directory
-    sudo -u $SERVICE_USER git clone $GITHUB_REPO $APP_DIR
+    cd /opt
+    sudo -u $SERVICE_USER git clone $GITHUB_REPO finance-tracker
     print_status "Repository cloned"
 fi
 
