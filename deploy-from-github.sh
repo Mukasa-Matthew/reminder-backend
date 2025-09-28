@@ -98,9 +98,11 @@ if [ -d "$APP_DIR/.git" ]; then
 else
     # Remove existing directory if it exists
     sudo rm -rf $APP_DIR
+    # Create directory with proper ownership
+    sudo mkdir -p $APP_DIR
+    sudo chown $SERVICE_USER:$SERVICE_USER $APP_DIR
     # Clone to the correct directory
     sudo -u $SERVICE_USER git clone $GITHUB_REPO $APP_DIR
-    sudo chown -R $SERVICE_USER:$SERVICE_USER $APP_DIR
     print_status "Repository cloned"
 fi
 
