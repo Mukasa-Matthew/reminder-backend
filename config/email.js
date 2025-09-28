@@ -65,9 +65,9 @@ const emailTemplates = {
             <div class="highlight">
               <strong>Quick Actions:</strong>
               <ul>
-                <li><a href="${data.appUrl}/transactions/new?type=income" style="color: #667eea;">Record Income</a></li>
-                <li><a href="${data.appUrl}/transactions/new?type=expense" style="color: #667eea;">Record Expense</a></li>
-                <li><a href="${data.appUrl}/dashboard" style="color: #667eea;">View Dashboard</a></li>
+                <li><a href="${data.appUrl}/api" style="color: #667eea;">View API Documentation</a></li>
+                <li><a href="${data.appUrl}/health" style="color: #667eea;">Check API Status</a></li>
+                <li><a href="${data.appUrl}/api/reminder-templates" style="color: #667eea;">View Reminder Templates</a></li>
               </ul>
             </div>
             
@@ -79,7 +79,7 @@ const emailTemplates = {
               <li>Achieve your financial goals</li>
             </ul>
             
-            <a href="${data.appUrl}" class="button">Open Finance Tracker</a>
+            <a href="${data.appUrl}/api" class="button">Open Finance Tracker API</a>
           </div>
           <div class="footer">
             <p>This is an automated reminder from your Finance Tracker app.</p>
